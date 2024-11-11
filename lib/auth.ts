@@ -22,3 +22,12 @@ export function useLogout() {
 
   return logout
 }
+
+export function logout() {
+  // 1. Limpar tokens
+  localStorage.removeItem('minerva_token')
+  document.cookie = 'minerva_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+
+  // 2. Redirecionar para login com mensagem
+  window.location.href = '/login?session_expired=true'
+}

@@ -28,6 +28,12 @@ export function LoginForm() {
         }
     }, [searchParams])
 
+    useEffect(() => {
+      if (searchParams.get('session_expired')) {
+        setError('Sua sessão expirou. Por favor, faça login novamente.')
+      }
+    }, [searchParams])
+
     const {
         register,
         handleSubmit,

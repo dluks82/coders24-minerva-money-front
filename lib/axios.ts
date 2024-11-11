@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { logout } from './auth'
 
 export const api = axios.create({
   baseURL: 'http://localhost:8081',
@@ -23,8 +24,7 @@ api.interceptors.response.use(
   response => response,
   error => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('minerva_token')
-      window.location.href = '/login'
+      logout()
     }
     return Promise.reject(error)
   }
