@@ -1,4 +1,3 @@
-// src/hooks/use-dashboard.ts
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/axios';
 import { useAccount } from '@/contexts/account-context';

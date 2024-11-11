@@ -12,3 +12,11 @@ export enum TransactionType {
     date: string;        // LocalDate -> string (YYYY-MM-DD)
     deleted: boolean;
   }
+
+  export interface CreateTransactionData {
+    amount: number;
+    type: TransactionType;
+    description: string;
+    category: number;
+    date: string;
+  }
