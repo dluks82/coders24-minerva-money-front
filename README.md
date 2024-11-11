@@ -22,7 +22,7 @@ Aplicação web para controle financeiro pessoal desenvolvida com Next.js 15.
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/minerva-money-front.git
+git clone git@github.com:dluks82/coders24-minerva-money-front.git
 cd minerva-money-front
 ```
 
