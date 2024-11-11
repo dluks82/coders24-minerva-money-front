@@ -1,3 +1,5 @@
+'use client'
+
 import { Brain, ChevronDown, User, LogOut, Wallet } from "lucide-react";
 import {
   DropdownMenu,
@@ -5,8 +7,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/contexts/auth-context";
+import { useLogout } from "@/lib/auth";
 
 export function Header() {
+  const { user } = useAuth()
+  const logout = useLogout()
+
   return (
     <header className="border-b bg-white">
       <div className="flex h-16 items-center justify-between px-8">
@@ -41,7 +48,7 @@ export function Header() {
               <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
                 <User className="h-5 w-5 text-purple-600" />
               </div>
-              <span>João Silva</span>
+              <span>{user?.fullName}</span>
               <ChevronDown className="h-4 w-4 text-gray-500" />
             </div>
           </DropdownMenuTrigger>
@@ -50,7 +57,7 @@ export function Header() {
               <User className="h-4 w-4 mr-2" />
               Perfil
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-red-600">
+            <DropdownMenuItem className="text-red-600" onClick={logout}>
               <LogOut className="h-4 w-4 mr-2" />
               Sair
             </DropdownMenuItem>
