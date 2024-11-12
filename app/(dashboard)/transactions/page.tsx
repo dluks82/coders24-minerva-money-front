@@ -1,7 +1,7 @@
 'use client'
 
 import { useTransactions } from "@/hooks/use-transactions"
-import { formatCurrency } from "@/lib/utils"
+import { formatCurrency, parseLocalDate } from "@/lib/utils"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import { 
@@ -76,7 +76,7 @@ export default function TransactionsPage() {
                    className="border-b hover:bg-gray-50"
                  >
                    <td className="p-3">
-                     {format(new Date(transaction.date), "d 'de' MMMM, yyyy", {
+                     {format(parseLocalDate(transaction.date), "d 'de' MMMM, yyyy", {
                        locale: ptBR
                      })}
                    </td>

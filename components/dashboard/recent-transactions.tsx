@@ -1,5 +1,5 @@
 // src/components/dashboard/recent-transactions.tsx
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, parseLocalDate } from "@/lib/utils";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -62,7 +62,7 @@ export function RecentTransactions({ transactions }: RecentTransactionsProps) {
                     {formatCurrency(transaction.amount)}
                   </p>
                   <p className="text-sm text-gray-500">
-                    {format(new Date(transaction.date), "d 'de' MMMM", {
+                    {format(parseLocalDate(transaction.date), "d 'de' MMMM", {
                       locale: ptBR,
                     })}
                   </p>
