@@ -6,7 +6,7 @@ Aplicação web para controle financeiro pessoal desenvolvida com Next.js 15.
 
 - Node.js 18+ 
 - npm (ou yarn/pnpm)
-- Backend Minerva Money rodando em `localhost:8081` ([Repositório do Backend](link-do-repositorio))
+- Backend Minerva Money rodando em `localhost:8081` ([Minerva Money API](https://github.com/dluks82/coders24-minerva-money))
 
 ## Tecnologias
 
