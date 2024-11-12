@@ -1,5 +1,5 @@
 // src/components/dashboard/recent-transactions.tsx
-import { formatCurrency, parseLocalDate } from "@/lib/utils";
+import { formatCurrency, parseLocalDate, cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,7 +12,6 @@ interface RecentTransactionsProps {
 
 export function RecentTransactions({ transactions }: RecentTransactionsProps) {
   return (
-    // aplly a space in top
     <Card className="col-span-full mt-4">
       <CardHeader>
         <CardTitle>Transações Recentes</CardTitle>
@@ -27,7 +26,10 @@ export function RecentTransactions({ transactions }: RecentTransactionsProps) {
             transactions.map((transaction) => (
               <div
                 key={transaction.id}
-                className="flex items-center justify-between py-4 border-b last:border-0"
+                className={cn(
+                  "flex items-center justify-between py-4 border-b last:border-0",
+                  transaction.deleted && "opacity-50 bg-gray-50 rounded-lg"
+                )}
               >
                 <div className="flex items-center gap-3">
                   <div
@@ -44,7 +46,19 @@ export function RecentTransactions({ transactions }: RecentTransactionsProps) {
                     )}
                   </div>
                   <div>
-                    <p className="font-medium">{transaction.description}</p>
+                    <div className="flex items-center gap-2">
+                      <p className={cn(
+                        "font-medium",
+                        transaction.deleted && "line-through"
+                      )}>
+                        {transaction.description}
+                      </p>
+                      {transaction.deleted && (
+                        <span className="text-xs text-gray-500 bg-gray-200 px-2 py-0.5 rounded">
+                          Excluída
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-gray-500">
                       {transaction.category}
                     </p>

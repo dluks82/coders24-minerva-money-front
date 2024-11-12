@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { ActionButton } from "@/components/layout/action-button";
 import { NewTransactionDialog } from "@/components/transactions/new-transaction-dialog";
 
 export default function DashboardLayout({
