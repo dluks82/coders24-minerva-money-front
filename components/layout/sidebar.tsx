@@ -8,7 +8,6 @@ import {
   CircleDollarSign,
   Wallet,
   Tags,
-  ChevronLeft,
 } from "lucide-react";
 
 const menuItems = [

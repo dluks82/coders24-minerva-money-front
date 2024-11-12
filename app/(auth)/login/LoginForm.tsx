@@ -54,7 +54,7 @@ export function LoginForm() {
             setUser(userData)
 
             router.push('/dashboard')
-        } catch (err: any) {
+        } catch (err: unknown) {
             if (axios.isAxiosError(err)) {
                 setError(err.response?.data?.error || 'Email ou senha inválidos')
             } else {

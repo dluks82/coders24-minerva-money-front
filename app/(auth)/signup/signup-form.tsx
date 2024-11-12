@@ -32,7 +32,7 @@ export function SignUpForm() {
       await authService.register(data)
       // Após registro bem sucedido, redireciona para login
       router.push('/login?registered=true')
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Erro ao criar conta')
         console.error(err.response?.data)
